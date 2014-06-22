@@ -79,4 +79,10 @@ class apt::backports(
     key        => $key,
     key_server => 'pgp.mit.edu',
   }
+
+  apt::pin { 'backports':
+    priority => $pin_priority,
+    before   => File['backports.list'],
+    release  => "${release_real}-backports",
+  }
 }
