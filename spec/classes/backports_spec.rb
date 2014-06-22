@@ -23,8 +23,9 @@ describe 'apt::backports', :type => :class do
       }
 
       it { should contain_apt__pin('backports').with({
-          'release'  => 'karmic-backports',
-          'priority' => 500,
+          'priority'  => 500,
+          'release'   => 'karmic-backports',
+          'before'    => 'File[backports.list]'
         })
       }
     end
@@ -57,8 +58,9 @@ describe 'apt::backports', :type => :class do
     }
 
     it { should contain_apt__pin('backports').with({
-        'release'  => 'karmic-backports',
-        'priority' => 200,
+        'priority'  => 200,
+        'release'   => 'karmic-backports',
+        'before'    => 'File[backports.list]'
       })
     }
   end
@@ -83,8 +85,9 @@ describe 'apt::backports', :type => :class do
     }
 
     it { should contain_apt__pin('backports').with({
-        'release'  => 'squeeze-backports',
-        'priority' => 200,
+        'priority'  => 200,
+        'release'   => 'squeeze-backports',
+        'before'    => 'File[backports.list]'
       })
     }
   end
@@ -109,8 +112,9 @@ describe 'apt::backports', :type => :class do
     }
 
     it { should contain_apt__pin('backports').with({
-        'release'  => 'wheezy-backports',
-        'priority' => 200,
+        'priority'  => 200,
+        'release'   => 'wheezy-backports',
+        'before'    => 'File[backports.list]'
       })
     }
   end
@@ -135,8 +139,9 @@ describe 'apt::backports', :type => :class do
     }
 
     it { should contain_apt__pin('backports').with({
-        'release'  => 'trusty-backports',
-        'priority' => 200,
+        'priority'  => 200,
+        'release'   => 'trusty-backports',
+        'before'    => 'File[backports.list]'
       })
     }
   end
@@ -169,8 +174,9 @@ describe 'apt::backports', :type => :class do
     }
 
     it { should contain_apt__pin('backports').with({
-        'release'  => 'squeeze-backports',
-        'priority' => 200,
+        'priority'  => 200,
+        'release'   => 'squeeze-backports',
+        'before'    => 'File[backports.list]'
       })
     }
   end
