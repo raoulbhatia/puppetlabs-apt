@@ -112,7 +112,7 @@ describe 'apt::unattended_upgrades', :type => :class do
       }
     end
 
-    it { is_expected.to contain_file("/etc/apt/apt.conf.d/50unattended-upgrades").with_content %r{Unattended-Upgrade::Allowed-Origins \{\n\t"\${distro_id} oldstable";\n\t"\${distro_id} \${distro_codename}-security";\n\t"\${distro_id} \${distro_codename}-lts";\n\};} }
+    it { is_expected.to contain_file("/etc/apt/apt.conf.d/50unattended-upgrades").with_content %r{Unattended-Upgrade::Allowed-Origins \{\n\t"\${distro_id} oldstable";\n\t"\${distro_id} oldoldstable";\n\t"\${distro_id} \${distro_codename}-security";\n\t"\${distro_id} \${distro_codename}-lts";\n\};} }
     it { is_expected.to contain_file("/etc/apt/apt.conf.d/50unattended-upgrades").with_content %r{Unattended-Upgrade::AutoFixInterruptedDpkg "true";}}
     it { is_expected.to contain_file("/etc/apt/apt.conf.d/50unattended-upgrades").with_content %r{Unattended-Upgrade::MinimalSteps "false";}}
     it { is_expected.to contain_file("/etc/apt/apt.conf.d/50unattended-upgrades").with_content %r{Unattended-Upgrade::InstallOnShutdown "false";}}

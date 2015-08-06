@@ -43,6 +43,7 @@ class apt::params {
           $backports_location = 'http://backports.debian.org/debian-backports'
           $legacy_origin       = true
           $origins             = ['${distro_id} oldstable', #lint:ignore:single_quote_string_with_variables
+                                  '${distro_id} oldoldstable', #lint:ignore:single_quote_string_with_variables
                                   '${distro_id} ${distro_codename}-security', #lint:ignore:single_quote_string_with_variables
                                   '${distro_id} ${distro_codename}-lts'] #lint:ignore:single_quote_string_with_variables
         }
