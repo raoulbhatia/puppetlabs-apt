@@ -4,7 +4,7 @@ define apt::ppa(
   $options        = $::apt::ppa_options,
   $release        = $::apt::xfacts['lsbdistcodename'],
   $package_name   = $::apt::ppa_package,
-  $package_manage = false,
+  $package_manage = false
 ) {
   unless $release {
     fail('lsbdistcodename fact not available: release parameter required')

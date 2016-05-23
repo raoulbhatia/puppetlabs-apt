@@ -10,7 +10,7 @@ define apt::key (
   $key_content = undef,
   $key_source  = undef,
   $key_server  = undef,
-  $key_options = undef,
+  $key_options = undef
 ) {
 
   if $key != undef {
@@ -105,7 +105,7 @@ define apt::key (
     }
 
     default: {
-      fail "Invalid 'ensure' value '${ensure}' for apt::key"
+      fail "Invalid 'ensure' value '${ensure}' for ::apt::key"
     }
   }
 }

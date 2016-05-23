@@ -17,7 +17,7 @@ define apt::pin(
   $label           = ''  # l=
 ) {
   if $order and !is_integer($order) {
-    fail('Only integers are allowed in the apt::pin order param')
+    fail('Only integers are allowed in the ::apt::pin order param')
   }
 
   if $explanation {
@@ -71,7 +71,7 @@ define apt::pin(
   # be silently ignored.
   $file_name = regsubst($title, '[^0-9a-z\-_\.]', '_', 'IG')
 
-  apt::setting { "pref-${file_name}":
+  ::apt::setting { "pref-${file_name}":
     ensure        => $ensure,
     priority      => $order,
     content       => template('apt/_header.erb', 'apt/pin.pref.erb'),
