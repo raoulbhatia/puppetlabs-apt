@@ -11,7 +11,7 @@ class apt (
   $keys     = {},
   $ppas     = {},
   $pins     = {},
-  $settings = {},
+  $settings = {}
 ) inherits ::apt::params {
 
   $frequency_options = ['always','daily','weekly','reluctantly']
@@ -65,7 +65,7 @@ class apt (
     validate_bool($proxy['https'])
   }
 
-  $_proxy = merge($apt::proxy_defaults, $proxy)
+  $_proxy = merge($::apt::proxy_defaults, $proxy)
 
   validate_hash($confs)
   validate_hash($sources)
@@ -75,7 +75,7 @@ class apt (
   validate_hash($pins)
 
   if $_proxy['ensure'] == 'absent' or $_proxy['host'] {
-    apt::setting { 'conf-proxy':
+    ::apt::setting { 'conf-proxy':
       ensure   => $_proxy['ensure'],
       priority => '01',
       content  => template('apt/_conf_header.erb', 'apt/proxy.erb'),
@@ -98,7 +98,7 @@ class apt (
     }
   }
 
-  apt::setting { 'conf-update-stamp':
+  ::apt::setting { 'conf-update-stamp':
     priority => 15,
     content  => template('apt/_conf_header.erb', 'apt/15update-stamp.erb'),
   }

@@ -2,7 +2,7 @@ define apt::conf (
   $content       = undef,
   $ensure        = present,
   $priority      = 50,
-  $notify_update = undef,
+  $notify_update = undef
 ) {
 
   unless $ensure == 'absent' {
@@ -11,7 +11,7 @@ define apt::conf (
     }
   }
 
-  apt::setting { "conf-${name}":
+  ::apt::setting { "conf-${name}":
     ensure        => $ensure,
     priority      => $priority,
     content       => template('apt/_conf_header.erb', 'apt/conf.erb'),

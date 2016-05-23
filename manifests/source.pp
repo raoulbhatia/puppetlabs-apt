@@ -18,7 +18,7 @@ define apt::source(
   $key_content       = undef,
   $key_source        = undef,
   $trusted_source    = undef,
-  $notify_update     = undef,
+  $notify_update     = undef
 ) {
   validate_string($architecture, $comment, $location, $repos)
   validate_bool($allow_unsigned)
@@ -114,10 +114,10 @@ define apt::source(
     }
   }
 
-  apt::setting { "list-${name}":
+  ::apt::setting { "list-${name}":
     ensure        => $ensure,
     content       => template('apt/_header.erb', 'apt/source.list.erb'),
-    notify_update => $notify_update,
+    notify_update => $notify_update
   }
 
   if $pin {
@@ -141,7 +141,7 @@ define apt::source(
   # We do not want to remove keys when the source is absent.
   if $key and ($ensure == 'present') {
     if is_hash($_key) {
-      apt::key { "Add key: ${$_key['id']} from Apt::Source ${title}":
+      ::apt::key { "Add key: ${$_key['id']} from Apt::Source ${title}":
         ensure      => present,
         id          => $_key['id'],
         server      => $_key['server'],

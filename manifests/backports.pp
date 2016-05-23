@@ -3,7 +3,7 @@ class apt::backports (
   $release  = undef,
   $repos    = undef,
   $key      = undef,
-  $pin      = 200,
+  $pin      = 200
 ){
   if $location {
     validate_string($location)
@@ -45,7 +45,7 @@ class apt::backports (
   if is_hash($pin) {
     $_pin = $pin
   } elsif is_numeric($pin) or is_string($pin) {
-    # apt::source defaults to pinning to origin, but we should pin to release
+    # ::apt::source defaults to pinning to origin, but we should pin to release
     # for backports
     $_pin = {
       'priority' => $pin,
@@ -55,7 +55,7 @@ class apt::backports (
     fail('pin must be either a string, number or hash')
   }
 
-  apt::source { 'backports':
+  ::apt::source { 'backports':
     location => $_location,
     release  => $_release,
     repos    => $_repos,

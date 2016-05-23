@@ -3,7 +3,7 @@ define apt::setting (
   $ensure        = file,
   $source        = undef,
   $content       = undef,
-  $notify_update = true,
+  $notify_update = true
 ) {
 
   include 'apt::params'
