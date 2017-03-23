@@ -22,24 +22,6 @@ describe 'apt::backports', :type => :class do
       })
       }
     end
-    context 'defaults on squeeze' do
-      let(:facts) do
-        {
-          :lsbdistid       => 'Debian',
-          :osfamily        => 'Debian',
-          :lsbdistcodename => 'squeeze',
-          :puppetversion   => Puppet.version,
-        }
-      end
-      it { is_expected.to contain_apt__source('backports').with({
-        :location => 'http://deb.debian.org/debian-backports',
-        :key      => 'A1BD8E9D78F7FE5C3E65D8AF8B48AD6246925553',
-        :repos    => 'main contrib non-free',
-        :release  => 'squeeze-backports',
-        :pin      => { 'priority' => 200, 'release' => 'squeeze-backports' },
-      })
-      }
-    end
     context 'defaults on ubuntu' do
       let(:facts) do
         {

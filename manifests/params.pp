@@ -89,13 +89,6 @@ class apt::params {
   case $xfacts['lsbdistid'] {
     'debian': {
       case $xfacts['lsbdistcodename'] {
-        'squeeze': {
-          $backports = {
-            'location' => 'http://deb.debian.org/debian-backports',
-            'key'      => 'A1BD8E9D78F7FE5C3E65D8AF8B48AD6246925553',
-            'repos'    => 'main contrib non-free',
-          }
-        }
         default: {
           $backports = {
             'location' => 'http://deb.debian.org/debian',
